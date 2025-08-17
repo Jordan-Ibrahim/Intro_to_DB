@@ -14,13 +14,13 @@ CREATE TABLE Books (
 
 
 CREATE TABLE Authors (
-   author_id (Primary Key),
+   author_id (PRIMARY KEY),
    author_name VARCHAR(215)
 );
 
 
 CREATE TABLE Customers (
-   customer_id (Primary Key),
+   customer_id (PRIMARY KEY),
    customer_name VARCHAR(215),
    email VARCHAR(215),
    address TEXT
@@ -28,15 +28,16 @@ CREATE TABLE Customers (
 
 
 CREATE TABLE Orders (
-   order_id (Primary Key),
-   customer_id (Foreign Key referencing Customers table),
+   order_id INT (PRIMARY KEY), 
+   customer_id INT,
+   FOREIGN KEY (customer_id) REFERENCES Customers(customer_id),
    order_date DATE
 );
 
 
 CREATE TABLE Order_Details (
-   orderdetailid (Primary Key),
+   orderdetailid INT (PRIMARY KEY),
    FOREIGN KEY (order_id) REFERENCES Orders(order_id),
-   FOREIGN KEY (book_id) REFERENCES  Books (book_id),
+   FOREIGN KEY (book_id) REFERENCES  Books(book_id),
    quantity DOUBLE
 );
