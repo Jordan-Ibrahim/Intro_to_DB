@@ -1,4 +1,4 @@
-USE alx_book_store;
+TABLE_SCHEMA = alx_book_store
 
 SELECT 
     COLUMN_NAME,
